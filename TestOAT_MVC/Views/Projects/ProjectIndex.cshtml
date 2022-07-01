@@ -1,0 +1,71 @@
+﻿@model IEnumerable<TestOAT_MVC.Models.Projects.ProjectIndexDto>
+
+@{
+    ViewData["Title"] = "ProjectIndex";
+}
+
+<h1>ProjectIndex</h1>
+
+<p>
+    <a asp-action="Create">Add Project</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PurchasePrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatePurchased)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoursDedicated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Completed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sold)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DropDownListFor(modelItem => item.Type, new SelectList(Enum.GetValues(typeof(TestOAT_MVC.Data.Type))), "Select Type of Project")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchasePrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatePurchased)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoursDedicated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Completed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sold)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
