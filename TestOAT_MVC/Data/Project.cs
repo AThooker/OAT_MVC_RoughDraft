@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TestOAT_MVC.Data
@@ -25,10 +26,14 @@ namespace TestOAT_MVC.Data
     public class Project
     {
         public int Id { get; set; }
+        [Required]
         public Type Type { get; set; }
         //might not work, playing around with using implicitly built user "identity user"
         //Short description of the project
+        [Required]
         public string Description { get; set; }
+        [Required(ErrorMessage = "Please enter a valid price $0 - $10,000")]
+        [Range(0,10000)]
         public double PurchasePrice { get; set; }
         public DateTime DatePurchased { get; set; } = DateTime.Now;
         public bool Completed { get; set; }

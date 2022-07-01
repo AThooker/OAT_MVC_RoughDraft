@@ -40,7 +40,8 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DropDownListFor(modelItem => item.Type, new SelectList(Enum.GetValues(typeof(TestOAT_MVC.Data.Type))), "Select Type of Project")
+                @Html.DisplayFor(modelItem => item.Type)
+                @*@Html.DropDownListFor(modelItem => item.Type, new SelectList(Enum.GetValues(typeof(TestOAT_MVC.Data.Type))), "Select Type of Project")*@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
