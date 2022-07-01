@@ -20,8 +20,8 @@ namespace TestOAT_MVC.Services
                 Description = model.Description,
                 PurchasePrice = model.PurchasePrice
             };
-                _context.Projects.Add(entity);
-                return _context.SaveChanges() == 1;
+            _context.Projects.Add(entity);
+            return _context.SaveChanges() == 1;
         }
         //GET list of all current projects
         public IEnumerable<ProjectIndexDto> GetCurrentProjects()
@@ -50,6 +50,34 @@ namespace TestOAT_MVC.Services
         {
             var projects = _context.Projects.Where(p => p.Sold == true);
             return projects.ToList();
+        }
+        public EditProjectDto GetProjectById(int? id)
+        {
+            var entity = _context.Projects.Single(p => p.Id == id);
+            return new EditProjectDto
+            {
+                Id = entity.Id,
+                Type = entity.Type,
+                Description = entity.Description,
+                PurchasePrice = entity.PurchasePrice,
+                DatePurchased = entity.DatePurchased,
+                HoursDedicated = entity.HoursDedicated,
+                Completed = entity.Completed,
+                Sold = entity.Sold
+            };
+        }
+        //category, description, purchase price, HoursDedicated, Completed, Sold
+        public bool UpdateProject(EditProjectDto model)
+        {
+            var entity = _context.Projects.Single(p => p.Id == model.Id);
+            entity.Type = model.Type;
+            entity.Description = model.Description;
+            entity.PurchasePrice = model.PurchasePrice;
+            entity.DatePurchased = model.DatePurchased;
+            entity.HoursDedicated = model.HoursDedicated;
+            entity.Completed = model.Completed;
+            entity.Sold = model.Sold;
+            return _context.SaveChanges() == 1;
         }
     }
 }

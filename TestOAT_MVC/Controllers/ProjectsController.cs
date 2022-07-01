@@ -48,6 +48,48 @@ namespace TestOAT_MVC.Controllers
             TempData["SaveResult"] = "Project Created, way to go killer!";
             return RedirectToAction("Index");
         }
+        //GET: Edit Project Details - edit category, description, purchase price, HoursDedicated, Completed, Sold
+        public ActionResult Edit(int? id)
+        {
+            var service = CreateProjectService();
+            var model = service.GetProjectById(id);
+            //var detail = new EditProjectDto
+            //{
+            //    Id = model.Id,
+            //    Type = model.Type,
+            //    Description = model.Description,
+            //    PurchasePrice = model.PurchasePrice,
+            //    DatePurchased = model.DatePurchased,
+            //    HoursDedicated = model.HoursDedicated,
+            //    Completed = model.Completed,
+            //    Sold = model.Sold
+            //};
+            return View(model);
+        }
+        //POST: Note Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, EditProjectDto model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.Id != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateProjectService();
+
+            if (service.UpdateProject(model))
+            {
+                TempData["SaveResult"] = "Your project was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your Project was not updated successfully");
+            return View(model);
+        }
         private ProjectService CreateProjectService()
         {
             //Possibly finding the userId, not sure how this works yet

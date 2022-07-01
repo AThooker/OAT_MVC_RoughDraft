@@ -1,12 +1,16 @@
-﻿namespace TestOAT_MVC.Models.Projects
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TestOAT_MVC.Models.Projects
 {
     public class EditProjectDto
     {
-        public Type Type { get; set; }
+        public int Id { get; set; }
+        public Data.Type Type { get; set; }
         //might not work, playing around with using implicitly built user "identity user"
         //Short description of the project
         public string Description { get; set; }
         public double PurchasePrice { get; set; }
+        [DataType(DataType.Date)]
         public DateTime DatePurchased { get; set; }
         public bool Completed { get; set; }
         public double HoursDedicated { get; set; }
