@@ -1,4 +1,6 @@
-﻿using TestOAT_MVC.Data;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Reflection;
+using TestOAT_MVC.Data;
 using TestOAT_MVC.Models.Projects;
 
 namespace TestOAT_MVC.Services
@@ -24,7 +26,7 @@ namespace TestOAT_MVC.Services
             return _context.SaveChanges() == 1;
         }
         //GET list of all current projects
-        public IEnumerable<ProjectIndexDto> GetCurrentProjects()
+        public IEnumerable<ProjectIndexDto> GetAllProjects()
         {
             var projects = _context.Projects.Select(e => new ProjectIndexDto
             {

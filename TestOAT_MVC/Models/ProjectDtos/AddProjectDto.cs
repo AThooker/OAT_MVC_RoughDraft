@@ -5,24 +5,24 @@ using System.Web.Mvc;
 
 namespace TestOAT_MVC.Models.Projects
 {
-    public enum Type
-    {
-        Dresser,
-        [Description("End Table")]
-        EndTable,
-        [Description("Night Stand")]
-        NightStand,
-        Bench,
-        Hutch,
-        Bookcase,
-        Desk,
-        [Description("Coffee Table")]
-        CoffeeTable,
-        Chair,
-        Stool,
-        Sofa,
-        Bed
-    }
+    //public enum Type
+    //{
+    //    Dresser,
+    //    [Description("End Table")]
+    //    EndTable,
+    //    [Description("Night Stand")]
+    //    NightStand,
+    //    Bench,
+    //    Hutch,
+    //    Bookcase,
+    //    Desk,
+    //    [Description("Coffee Table")]
+    //    CoffeeTable,
+    //    Chair,
+    //    Stool,
+    //    Sofa,
+    //    Bed
+    //}
     [Keyless]
     public class AddProjectDto
     {

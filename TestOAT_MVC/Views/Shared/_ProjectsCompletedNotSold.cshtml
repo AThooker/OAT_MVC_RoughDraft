@@ -1,0 +1,76 @@
+﻿@model IEnumerable<TestOAT_MVC.Models.Projects.ProjectIndexDto>
+
+@{
+    //ViewData["Title"] = "ProjectIndex";
+}
+
+<h1>Completed</h1>
+
+@*<p>
+    <a asp-action="Create">Add Project</a>
+</p>*@
+<table class="table table-bordered table-hover table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PurchasePrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatePurchased)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoursDedicated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Completed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sold)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    if(item.Completed == true && item.Sold == false)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+                @*@Html.DropDownListFor(modelItem => item.Type, new SelectList(Enum.GetValues(typeof(TestOAT_MVC.Data.Type))), "Select Type of Project")*@
+            </td>
+            <td class="description">
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchasePrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatePurchased)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoursDedicated)
+            </td>
+            <td>
+                @*letting user check this in index list?? Then automatically moving to completed list*@
+                @Html.DisplayFor(modelItem => item.Completed)
+            </td>
+            <td>
+                @*letting user check this in index list?? Then automatically moving to Sold list*@
+                @Html.DisplayFor(modelItem => item.Sold)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary">Edit</a> 
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-primary">Details</a> 
+            </td>
+        </tr>
+    }
+}
+    </tbody>
+</table>

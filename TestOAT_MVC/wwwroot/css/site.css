@@ -16,3 +16,7 @@ html {
 body {
   margin-bottom: 60px;
 }
+.description {
+    word-wrap: break-word;
+    width: 15%;
+}
