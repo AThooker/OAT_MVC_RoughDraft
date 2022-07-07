@@ -7,20 +7,29 @@ namespace TestOAT_MVC.Data
 {
     public enum Type
     {
+        [Display(Name = "Dresser")]
         Dresser,
-        [Description("End Table")]
+        [Display(Name = "End Table")]
         EndTable,
-        [Description("Night Stand")]
+        [Display(Name = "Night Stand")]
         NightStand,
+        [Display(Name = "Bench")]
         Bench,
+        [Display(Name = "Hutch")]
         Hutch,
+        [Display(Name = "Bookcase")]
         Bookcase,
+        [Display(Name = "Desk")]
         Desk,
-        [Description("Coffee Table")]
+        [Display(Name = "Coffee Table")]
         CoffeeTable,
+        [Display(Name = "Chair")]
         Chair,
+        [Display(Name = "Stool")]
         Stool,
+        [Display(Name = "Sofa")]
         Sofa,
+        [Display(Name = "Bed")]
         Bed
     }
     public class Project

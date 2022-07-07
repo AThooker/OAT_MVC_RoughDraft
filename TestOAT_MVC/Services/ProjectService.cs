@@ -31,7 +31,7 @@ namespace TestOAT_MVC.Services
             var projects = _context.Projects.Select(e => new ProjectIndexDto
             {
                 Id = e.Id,
-                Type = e.Type.ToString(),
+                Type = e.Type.GetEnumDisplayName(),
                 Description = e.Description,
                 PurchasePrice = e.PurchasePrice,
                 DatePurchased = e.DatePurchased,

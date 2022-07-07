@@ -9,7 +9,7 @@ namespace TestOAT_MVC.Data
         public static string GetEnumDisplayName(this Enum enumValue)
         {
             return enumValue.GetType().GetMember(enumValue.ToString())
-                    .First().GetCustomAttribute<DisplayAttribute>().Name;
+                    .First().GetCustomAttribute<DisplayAttribute>().GetName();
         }
     }
 }
