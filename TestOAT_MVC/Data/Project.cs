@@ -41,10 +41,11 @@ namespace TestOAT_MVC.Data
         //Short description of the project
         [Required]
         public string Description { get; set; }
+        public DateTime DatePurchased { get; set; } = DateTime.Now;
         [Required(ErrorMessage = "Please enter a valid price $0 - $10,000")]
         [Range(0,10000)]
         public double PurchasePrice { get; set; }
-        public DateTime DatePurchased { get; set; } = DateTime.Now;
+        public double MaterialsCost { get; set; }
         public bool Completed { get; set; }
         public double HoursDedicated { get; set; }
         public bool Sold { get; set; }

@@ -63,6 +63,7 @@ namespace TestOAT_MVC.Services
                 Description = entity.Description,
                 PurchasePrice = entity.PurchasePrice,
                 DatePurchased = entity.DatePurchased,
+                MaterialsCost = entity.MaterialsCost,
                 HoursDedicated = entity.HoursDedicated,
                 Completed = entity.Completed,
                 Sold = entity.Sold
@@ -76,6 +77,7 @@ namespace TestOAT_MVC.Services
             entity.Description = model.Description;
             entity.PurchasePrice = model.PurchasePrice;
             entity.DatePurchased = model.DatePurchased;
+            entity.MaterialsCost = model.MaterialsCost;
             entity.HoursDedicated = model.HoursDedicated;
             entity.Completed = model.Completed;
             entity.Sold = model.Sold;

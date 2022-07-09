@@ -9,11 +9,14 @@ namespace TestOAT_MVC.Models.Projects
         //might not work, playing around with using implicitly built user "identity user"
         //Short description of the project
         public string Description { get; set; }
-        public double PurchasePrice { get; set; }
         [DataType(DataType.Date)]
         public DateTime DatePurchased { get; set; }
-        public bool Completed { get; set; }
+        [DataType(DataType.Currency)]
+        public double PurchasePrice { get; set; }
+        [DataType(DataType.Currency)]
+        public double MaterialsCost { get; set; }
         public double HoursDedicated { get; set; }
+        public bool Completed { get; set; }
         public bool Sold { get; set; }
     }
 }

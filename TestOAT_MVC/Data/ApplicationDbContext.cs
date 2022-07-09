@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using TestOAT_MVC.Models.Projects;
+using TestOAT_MVC.Models.TransactionDtos;
 
 namespace TestOAT_MVC.Data
 {
