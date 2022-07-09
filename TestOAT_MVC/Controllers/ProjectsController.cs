@@ -48,6 +48,24 @@ namespace TestOAT_MVC.Controllers
             TempData["SaveResult"] = "Project Created, way to go killer!";
             return RedirectToAction("Index");
         }
+        //Update current projects to mark them complete and move to other complete/not sold list
+        [Route("/Complete/{id}")]
+        public ActionResult Complete(int id)
+        {
+            if (id == 0)
+            {
+                ModelState.AddModelError("", "No projects have Id of 0");
+                return View("Index");
+            }
+            var service = CreateProjectService();
+            if (service.CompleteProject(id))
+            {
+                TempData["SaveResult"] = "Your project was updated";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "Your project was not marked as 'Completed' successfully");
+            return View("Index");
+        }
         //GET: Edit Project Details - edit category, description, purchase price, HoursDedicated, Completed, Sold
         public ActionResult Edit(int? id)
         {

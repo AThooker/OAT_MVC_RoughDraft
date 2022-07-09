@@ -81,5 +81,11 @@ namespace TestOAT_MVC.Services
             entity.Sold = model.Sold;
             return _context.SaveChanges() == 1;
         }
+        public bool CompleteProject(int id)
+        {
+            var entity = _context.Projects.Single(p => p.Id == id);
+            entity.Completed = true;
+            return _context.SaveChanges() == 1;
+        }
     }
 }
