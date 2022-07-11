@@ -12,5 +12,8 @@ namespace TestOAT_MVC.Models.TransactionDtos
         [DataType(DataType.Currency)]
         [Display(Name = "Price Sold At: ")]
         public double PriceSoldAt { get; set; }
+        [DataType(DataType.Currency)]
+        [Display(Name = "Recommended Price ")]
+        public double RecommendedPrice { get; set; }
     }
 }

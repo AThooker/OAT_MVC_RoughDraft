@@ -18,21 +18,29 @@
                 <span asp-validation-for="ProjectId" class="text-danger"></span>
             </div>*@
             @Html.HiddenFor(m => m.ProjectId)
+            <dt class = "form-group">
+            @Html.DisplayNameFor(model => model.RecommendedPrice)
+            </dt>
+             <dd class = "form-group">
+                @Html.DisplayFor(model => model.RecommendedPrice)
+             </dd>
             <div class="form-group">
                 <label asp-for="PriceSoldAt" class="control-label"></label>
                 <input asp-for="PriceSoldAt" class="form-control" />
                 <span asp-validation-for="PriceSoldAt" class="text-danger"></span>
             </div>
+			    @*<a asp-action="Sold" asp-route-id="@item.Id" class="btn btn-primary">Completed</a> *@
             <br />
             <div class="form-group">
 				@*<a asp-action="TransactionDetail" asp-route-id="@Model.ProjectId" class="btn btn-primary">Complete Transaction</a> *@
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Check Sale" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
+    <br />
     <a asp-controller="Projects" asp-action="Index">Back to List</a>
 </div>
 

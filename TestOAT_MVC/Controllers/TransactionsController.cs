@@ -31,7 +31,7 @@ namespace TestOAT_MVC.Controllers
             return View("Create",transaction);
         }
 
-        //POST: Create the Project and save to db.Projects
+        //POST: Create the Project and save to db.Transactions
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(CreateTransactionDto model)
@@ -46,16 +46,44 @@ namespace TestOAT_MVC.Controllers
                 ModelState.AddModelError("", "Transaction has not been created");
                 return View(model);
             }
+            var transaction = service.GetTransactionDetailByProjectId(model.ProjectId);
             TempData["SaveResult"] = "Transaction Created, way to go killer!";
-            return RedirectToAction("TransactionDetail");
+            return RedirectToAction("TransactionDetail", "Transactions", new { id = transaction.Id });
         }
-        [HttpGet]
-        [ValidateAntiForgeryToken]
+
+        //[ValidateAntiForgeryToken]
+        [Route("Transactions/TransactionDetail/{id}")]
         public ActionResult TransactionDetail(int id)
         {
             var service = CreateTransactionService();
             var model = service.GetTransactionDetail(id);
             return View(model);
+        }
+        //[ValidateAntiForgeryToken]
+        [Route("Transactions/TransactionDetailByProjectId/{id}")]
+        public ActionResult TransactionDetailByProjectId(int id)
+        {
+            var service = CreateTransactionService();
+            var model = service.GetTransactionDetailByProjectId(id);
+            return View("TransactionDetail", model);
+        }
+
+        //sold endpoint to create transaction and shift project to "sold" list
+        [Route("/Sold/{id}")]
+        public ActionResult Sold(int id)
+        {
+            if (id == 0)
+            {
+                ModelState.AddModelError("", "No projects have Id of 0");
+                return RedirectToAction("Index", "Projects");
+            }
+            var service = CreateTransactionService();
+            if (service.SoldProject(id))
+            {
+                TempData["SaveResult"] = "Your project was updated";
+            }
+            ModelState.AddModelError("", "Your project was not marked as 'Sold' successfully");
+            return RedirectToAction("Index", "Projects");
         }
         private TransactionService CreateTransactionService()
         {

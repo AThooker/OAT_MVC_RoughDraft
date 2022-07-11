@@ -34,21 +34,22 @@ namespace TestOAT_MVC.Data
 		public DateTime DateOfTransaction { get; set; } = DateTime.Now;
 
         //SoldForPrice - (Product.Purchase Price + MaterialsCost)
-        public double Profit
-        {
-            get
-            {
-                return PriceSoldAt - (Project.PurchasePrice + Project.MaterialsCost);
-            }
-        }
+        public double? Profit { get; set; }
 
         //Profit earned divided by the hours worked to determine the profit/hour worked
-        public double ProfitPerHour { get; set; }
+        public double? ProfitPerHour { get; set; }
 
         public Transaction(int projectID, double priceSoldAt)
         {
             ProjectId = projectID;
             PriceSoldAt = priceSoldAt;
+        }
+        public Transaction(int projectID, double priceSoldAt, double? profit, double? profitPerHour)
+        {
+            ProjectId = projectID;
+            PriceSoldAt = priceSoldAt;
+            Profit = profit;
+            ProfitPerHour = profitPerHour;
         }
         public Transaction()
         {

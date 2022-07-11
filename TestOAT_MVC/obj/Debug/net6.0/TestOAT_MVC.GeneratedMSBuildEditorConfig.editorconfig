@@ -35,6 +35,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/17654/OAT/OAT_MVC_RoughDraft/TestOAT_MVC/Views/Projects/ProjectDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdHNcUHJvamVjdERldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/17654/OAT/OAT_MVC_RoughDraft/TestOAT_MVC/Views/Projects/ProjectIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdHNcUHJvamVjdEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -67,8 +71,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/17654/OAT/OAT_MVC_RoughDraft/TestOAT_MVC/Views/Transactions/CreateTransaction.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXENyZWF0ZVRyYW5zYWN0aW9uLmNzaHRtbA==
+[C:/Users/17654/OAT/OAT_MVC_RoughDraft/TestOAT_MVC/Views/Transactions/TransactionDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXFRyYW5zYWN0aW9uRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/17654/OAT/OAT_MVC_RoughDraft/TestOAT_MVC/Views/_ViewImports.cshtml]

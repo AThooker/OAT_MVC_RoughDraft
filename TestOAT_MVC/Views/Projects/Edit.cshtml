@@ -61,18 +61,22 @@
 			@{
 				if (Model.Completed)
 				{
-			<div class="form-group form-check">
-				<label class="form-check-label">
-					<input class="form-check-input" asp-for="Completed" /> @Html.DisplayNameFor(model => model.Completed)
-				</label>
-			</div>
-			<br />
 					<div class="form-group form-check">
 						<label class="form-check-label">
-							<input class="form-check-input" asp-for="Sold" /> @Html.DisplayNameFor(model => model.Sold)
+							<input class="form-check-input" asp-for="Completed" /> @Html.DisplayNameFor(model => model.Completed)
 						</label>
 					</div>
 					<br />
+					if (Model.Sold)
+					{
+
+						<div class="form-group form-check">
+							<label class="form-check-label">
+								<input class="form-check-input" asp-for="Sold" /> @Html.DisplayNameFor(model => model.Sold)
+							</label>
+						</div>
+						<br />
+					}
 				}
 			}
 

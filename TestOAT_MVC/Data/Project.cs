@@ -47,7 +47,7 @@ namespace TestOAT_MVC.Data
         public double PurchasePrice { get; set; }
         public double MaterialsCost { get; set; }
         public bool Completed { get; set; }
-        public double HoursDedicated { get; set; }
+        public double HoursDedicated { get; set; } = 1;
         public bool Sold { get; set; }
 
         public Project(Type type, string description, double purchasePrice)

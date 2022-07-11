@@ -13,5 +13,6 @@ namespace TestOAT_MVC.Data
         }
         public DbSet<Project> Projects { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<TestOAT_MVC.Models.Projects.ProjectIndexDto>? ProjectIndexDto { get; set; }
     }
 }

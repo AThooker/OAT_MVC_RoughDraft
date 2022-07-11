@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<TestOAT_MVC.Models.Projects.ProjectIndexDto>
-
 @{
     //ViewData["Title"] = "ProjectIndex";
 }
@@ -67,7 +66,7 @@
                 @Html.DisplayFor(modelItem => item.Sold)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary">Edit</a> 
+                <a asp-action="TransactionDetailByProjectId" asp-controller="Transactions" asp-route-id="@item.Id" class="btn btn-outline-primary">Details</a> 
                 @*<a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-primary">Details</a>*@
             </td>
         </tr>
