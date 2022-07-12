@@ -11,13 +11,13 @@ namespace TestOAT_MVC.Controllers
     public class ProjectsController : Controller
     {
         private readonly ApplicationDbContext _context;
-        
+
         public ProjectsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        [Authorize]
+        [Authorize(Roles = "SuperUser")]
         public IActionResult Index()
         {
             var service = CreateProjectService();
@@ -35,12 +35,12 @@ namespace TestOAT_MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(AddProjectDto model)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View(model);
             }
             var service = CreateProjectService();
-            if(!service.CreateProject(model))
+            if (!service.CreateProject(model))
             {
                 ModelState.AddModelError("", "Project has not been created");
                 return View(model);

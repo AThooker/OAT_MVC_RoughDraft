@@ -47,6 +47,15 @@ namespace TestOAT_MVC.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "3c5e174e-3A0e-446f-56af-324d56fd7210",
+                            ConcurrencyStamp = "eb1de56f-8924-436f-9afc-2b832b025b34",
+                            Name = "SuperUser",
+                            NormalizedName = "SUPERUSER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -137,6 +146,36 @@ namespace TestOAT_MVC.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "96AB4865-a24d-4543-a6c6-9443d048cdb9",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "9b7ae703-52b6-4879-bb75-c6bdaa1ed1e7",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedUserName = "OLIVIA",
+                            PasswordHash = "AQAAAAEAACcQAAAAEG/K2RiQSgHu+vzxIodBLhu7mCXcgsAtQPWC5+lerVwb9bDRmKdKu2GeuYb/dqqb6g==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "38d5a2b7-255d-49e4-bd9c-b916c05a859e",
+                            TwoFactorEnabled = false,
+                            UserName = "OliviaK"
+                        },
+                        new
+                        {
+                            Id = "86AB4865-a24d-3543-a6c6-8443d048cdb9",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "e41c3c09-f60e-4c61-ab2f-ec92abbe7ec7",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedUserName = "AUSTIN",
+                            PasswordHash = "AQAAAAEAACcQAAAAELDndZSUv54LkC6oE1qtSAElyR2xRlyCTzlfMh8oEJR2iL7b1Cw0KM4U1GX8lnr2RA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "f1640116-f457-4c4b-854d-f3886ce3c7d6",
+                            TwoFactorEnabled = false,
+                            UserName = "AustinT"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -201,6 +240,18 @@ namespace TestOAT_MVC.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "96AB4865-a24d-4543-a6c6-9443d048cdb9",
+                            RoleId = "3c5e174e-3A0e-446f-56af-324d56fd7210"
+                        },
+                        new
+                        {
+                            UserId = "86AB4865-a24d-3543-a6c6-8443d048cdb9",
+                            RoleId = "3c5e174e-3A0e-446f-56af-324d56fd7210"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -290,42 +341,6 @@ namespace TestOAT_MVC.Data.Migrations
                     b.HasIndex("ProjectId");
 
                     b.ToTable("Transactions");
-                });
-
-            modelBuilder.Entity("TestOAT_MVC.Models.Projects.ProjectIndexDto", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<bool>("Completed")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("DatePurchased")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("HoursDedicated")
-                        .HasColumnType("float");
-
-                    b.Property<double>("PurchasePrice")
-                        .HasColumnType("float");
-
-                    b.Property<bool>("Sold")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ProjectIndexDto");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
