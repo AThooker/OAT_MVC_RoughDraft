@@ -24,6 +24,7 @@ namespace TestOAT_MVC.Controllers
             return View("TransactionIndex", model);
         }
         //GET: Get Create view for Project
+        [Route("Transactions/Create/{id}", Name = "createTransaction")]
         public ActionResult Create(int id)
         {
             var service = CreateTransactionService();
@@ -33,22 +34,34 @@ namespace TestOAT_MVC.Controllers
 
         //POST: Create the Project and save to db.Transactions
         [HttpPost]
+        [Route("Transactions/CreateTransaction", Name ="postCreateTransaction")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CreateTransactionDto model)
+        public ActionResult Create(TransactionPreviewDto model)
         {
+            var service = CreateTransactionService();
+            //var newCreateTransactionModel = service.FromPreviewDtoToCreate(model);
             if (!ModelState.IsValid)
             {
-                return View(model);
+                ModelState.AddModelError("", "The information passed to this page is invalid");
+                return View("TransactionPreview",model);
             }
-            var service = CreateTransactionService();
+            //GetTransactionPreview(model);
             if (!service.CreateTransaction(model))
             {
                 ModelState.AddModelError("", "Transaction has not been created");
-                return View(model);
+                return View("TransactionPreview",model);
             }
             var transaction = service.GetTransactionDetailByProjectId(model.ProjectId);
             TempData["SaveResult"] = "Transaction Created, way to go killer!";
             return RedirectToAction("TransactionDetail", "Transactions", new { id = transaction.Id });
+        }
+        //GetTransactionPreview by projectId to see what the transaction profit/perHour/etc will be like before confirming
+        [Route("Transactions/GetTransactionPreview/{id}")]
+        public ActionResult GetTransactionPreview(CreateTransactionDto transactionModel)
+        {
+            var service = CreateTransactionService();
+            var model = service.GetTransactionPreview(transactionModel);
+            return View("TransactionPreview", model);
         }
 
         //[ValidateAntiForgeryToken]

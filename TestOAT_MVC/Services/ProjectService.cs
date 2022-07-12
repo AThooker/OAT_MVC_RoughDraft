@@ -36,6 +36,7 @@ namespace TestOAT_MVC.Services
                 PurchasePrice = e.PurchasePrice,
                 DatePurchased = e.DatePurchased,
                 HoursDedicated = e.HoursDedicated,
+                DateSold = _context.Transactions.SingleOrDefault(t => t.ProjectId == e.Id).DateOfTransaction,
                 Completed = e.Completed,
                 Sold = e.Sold
             });

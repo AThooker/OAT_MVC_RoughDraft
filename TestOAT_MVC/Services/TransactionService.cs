@@ -21,7 +21,7 @@ namespace TestOAT_MVC.Services
 				RecommendedPrice = entity.PurchasePrice + entity.MaterialsCost + (30 * entity.HoursDedicated)
 			};
         }
-		public bool CreateTransaction(CreateTransactionDto model)
+		public bool CreateTransaction(TransactionPreviewDto model)
 		{
 			var project = _context.Projects.Single(p => p.Id == model.ProjectId);
 			//Make sure there isn't already a transaction for this project
@@ -32,8 +32,8 @@ namespace TestOAT_MVC.Services
 			{
 				ProjectId = model.ProjectId,
 				PriceSoldAt = model.PriceSoldAt,
-				Profit = model.PriceSoldAt - (project.PurchasePrice + project.MaterialsCost),
-				ProfitPerHour = (model.PriceSoldAt - (project.PurchasePrice + project.MaterialsCost)) / project.HoursDedicated
+				Profit = model.Profit,
+				ProfitPerHour = model.ProfitPerHour
 			};
 			_context.Transactions.Add(entity);
 			return _context.SaveChanges() == 2;
@@ -69,11 +69,37 @@ namespace TestOAT_MVC.Services
 				RecommendedPrice = project.PurchasePrice + project.MaterialsCost + (30 * project.HoursDedicated)
 			};
 		}
+		//Before the transaction is saved, we want to view the numbers, id here is the projectId
+		public TransactionPreviewDto GetTransactionPreview(CreateTransactionDto projectModel)
+		{
+			//var transaction = _context.Transactions.Single(p => p.Id == id);
+			var project = _context.Projects.Single(p => p.Id == projectModel.ProjectId);
+			return new TransactionPreviewDto
+			{
+				ProjectId = project.Id,
+				ProjectDescription = project.Description,
+				PriceSoldAt = projectModel.PriceSoldAt,
+				DateOfTransaction = DateTime.Now,
+				Profit = projectModel.PriceSoldAt - (project.PurchasePrice + project.MaterialsCost),
+				ProfitPerHour = (projectModel.PriceSoldAt - (project.PurchasePrice + project.MaterialsCost)) / project.HoursDedicated,
+				RecommendedPrice = project.PurchasePrice + project.MaterialsCost + (30 * project.HoursDedicated),
+				Sold = false
+			};
+		}
+		public CreateTransactionDto FromPreviewDtoToCreate(TransactionPreviewDto model)
+        {
+			return new CreateTransactionDto
+			{
+				ProjectId = model.ProjectId,
+				PriceSoldAt = model.PriceSoldAt,
+				RecommendedPrice = model.RecommendedPrice
+			};
+        }
 		//public int GetTransactionIdByProjectId(int id)
-  //      {
+		//      {
 		//	var transaction = _context.Transactions.Where(t => t.ProjectId == id).OrderByDescending(t => t.DateOfTransaction).FirstOrDefault();
 		//	return transaction.Id;
-  //      }
+		//      }
 		//Get list of transactions - ideally we RARELY use this
 		public IEnumerable<TransactionIndexDto> GetAllTransactions()
 		{

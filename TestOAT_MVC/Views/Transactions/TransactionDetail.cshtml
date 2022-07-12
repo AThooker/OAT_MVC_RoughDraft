@@ -1,77 +1,77 @@
 ﻿@model TestOAT_MVC.Models.TransactionDtos.TransactionIndexDto
 
 @{
-    ViewData["Title"] = "TransactionDetail";
+	ViewData["Title"] = "TransactionDetail";
 }
 
 <h1>Transaction Detail</h1>
 
 <div>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProjectId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProjectId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProjectDescription)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProjectDescription)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateOfTransaction)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateOfTransaction)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RecommendedPrice)
-        </dt>
-        <dd class = "col-sm-10">
-            $@Html.DisplayFor(model => model.RecommendedPrice)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PriceSoldAt)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PriceSoldAt)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Profit)
-        </dt>
-        @if(Model.Profit >= 1)
-        {
-            <dd style="color: green" class = "col-sm-10">
-            @Html.DisplayFor(model => model.Profit)
-            </dd>
-        }
-        @if(Model.Profit <= 0)
-        {
-            <dd style="color: red" class = "col-sm-10">
-            @Html.DisplayFor(model => model.Profit)
-            </dd>
-        }
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProfitPerHour)
-        </dt>
-        @if(Model.ProfitPerHour >= 1)
-        {
-            <dd style="color: green" class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProfitPerHour)
-            </dd>
-        }
-        @if(Model.ProfitPerHour <= 0)
-        {
-            <dd style="color: red" class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProfitPerHour)
-            </dd>
-        }
-    </dl>
+	<hr />
+	<dl class="row">
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.ProjectId)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.ProjectId)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.ProjectDescription)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.ProjectDescription)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.DateOfTransaction)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.DateOfTransaction)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.RecommendedPrice)
+		</dt>
+		<dd class="col-sm-10">
+			$@Html.DisplayFor(model => model.RecommendedPrice)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.PriceSoldAt)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.PriceSoldAt)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Profit)
+		</dt>
+		@if (Model.Profit >= 1)
+		{
+			<dd style="color: green" class="col-sm-10">
+				@Html.DisplayFor(model => model.Profit)
+			</dd>
+		}
+		@if (Model.Profit <= 0)
+		{
+			<dd style="color: red" class="col-sm-10">
+				@Html.DisplayFor(model => model.Profit)
+			</dd>
+		}
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.ProfitPerHour)
+		</dt>
+		@if (Model.ProfitPerHour >= 1)
+		{
+			<dd style="color: green" class="col-sm-10">
+				@Html.DisplayFor(model => model.ProfitPerHour)
+			</dd>
+		}
+		@if (Model.ProfitPerHour <= 0)
+		{
+			<dd style="color: red" class="col-sm-10">
+				@Html.DisplayFor(model => model.ProfitPerHour)
+			</dd>
+		}
+	</dl>
 </div>
 <div>
-    @*<a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |*@
-    <a asp-controller="Projects" asp-action="Index">Back to Projects</a>
+	@*<a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |*@
+	<a asp-controller="Projects" asp-action="Index">Back to Projects</a>
 </div>

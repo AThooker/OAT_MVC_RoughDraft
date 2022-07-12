@@ -3,11 +3,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TestOAT_MVC.Models.TransactionDtos
 {
-    public class TransactionIndexDto
+    [Keyless]
+    public class TransactionPreviewDto
     {
-        public int Id { get; set; }
         public int ProjectId { get; set; }
-        public string ProjectDescription { get; set; }
+        public string? ProjectDescription { get; set; }
 
         //Price the item is sold at
         [DataType(DataType.Currency)]

@@ -33,7 +33,8 @@
             <br />
             <div class="form-group">
 				@*<a asp-action="TransactionDetail" asp-route-id="@Model.ProjectId" class="btn btn-primary">Complete Transaction</a> *@
-                <input type="submit" value="Confirm Sale" class="btn btn-primary" />
+                <input type="submit" value="Review Sale" class="btn btn-primary" asp-action="GetTransactionPreview" asp-route-id="@Model.ProjectId"/>
+                @*<a asp-controller="Transactions" asp-action="GetTransactionPreview" asp-route-id="@Model" type="submit" class="btn btn-primary">Check Sale</a> *@
             </div>
         </form>
     </div>

@@ -1,0 +1,93 @@
+﻿@model TestOAT_MVC.Models.TransactionDtos.TransactionPreviewDto
+
+@{
+	ViewData["Title"] = "TransactionPreview";
+}
+
+<h1>Transaction Preview</h1>
+
+<div>
+	<form asp-action="Create">
+		<div class="form-group">
+			<input asp-for="PriceSoldAt" type="hidden" value="@Model.PriceSoldAt" />
+			<input type="hidden" asp-for="ProjectId" value="@Model.ProjectId" />
+			<input type="hidden" asp-for="Profit" value="@Model.Profit" />
+			<input type="hidden" asp-for="ProfitPerHour" value="@Model.ProfitPerHour" />
+		</div>
+		<hr />
+		<dl class="row">
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.ProjectId)
+			</dt>
+			<dd class="col-sm-10">
+				@Html.DisplayFor(model => model.ProjectId)
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.ProjectDescription)
+			</dt>
+			<dd class="col-sm-10">
+				@Html.DisplayFor(model => model.ProjectDescription)
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.DateOfTransaction)
+			</dt>
+			<dd class="col-sm-10">
+				@Html.DisplayFor(model => model.DateOfTransaction)
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.RecommendedPrice)
+			</dt>
+			<dd class="col-sm-10">
+				$@Html.DisplayFor(model => model.RecommendedPrice)
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.PriceSoldAt)
+			</dt>
+			<dd class="col-sm-10">
+				@Html.DisplayFor(model => model.PriceSoldAt)
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.Profit)
+			</dt>
+			@if (Model.Profit >= 1)
+			{
+				<dd style="color: green" class="col-sm-10">
+					@Html.DisplayFor(model => model.Profit)
+				</dd>
+			}
+			@if (Model.Profit <= 0)
+			{
+				<dd style="color: red" class="col-sm-10">
+					@Html.DisplayFor(model => model.Profit)
+				</dd>
+			}
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.ProfitPerHour)
+			</dt>
+			@if (Model.ProfitPerHour >= 1)
+			{
+				<dd style="color: green" class="col-sm-10">
+					@Html.DisplayFor(model => model.ProfitPerHour)
+				</dd>
+			}
+			@if (Model.ProfitPerHour <= 0)
+			{
+				<dd style="color: red" class="col-sm-10">
+					@Html.DisplayFor(model => model.ProfitPerHour)
+				</dd>
+			}
+		</dl>
+		@if (Model.Sold == false)
+		{
+			@*<a asp-route="postCreateTransaction" class="btn btn-primary">Confirm Sale</a>*@
+			<div class="form-group">
+				<input type="submit" value="Confirm Sale" class="btn btn-primary" />
+			</div>
+		}
+	</form>
+</div>
+<br />
+<div>
+	@*<a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |*@
+	<a asp-controller="Projects" asp-action="Index">Back to Projects</a>
+</div>

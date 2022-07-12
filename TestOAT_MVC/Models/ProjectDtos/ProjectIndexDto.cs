@@ -16,6 +16,9 @@ namespace TestOAT_MVC.Models.Projects
         [DataType(DataType.Date)]
         [Display(Name = "Date Purchased")]
         public DateTime DatePurchased { get; set; }
+        [DataType(DataType.Date)]
+        [Display(Name = "Date Sold")]
+        public DateTime? DateSold { get; set; }
         [Display(Name = "Hours Dedicated")]
         public double HoursDedicated { get; set; }
         public bool Completed { get; set; }

@@ -21,7 +21,7 @@ namespace TestOAT_MVC.Controllers
         public IActionResult Index()
         {
             var service = CreateProjectService();
-            var model = service.GetAllProjects();
+            var model = service.GetAllProjects().OrderByDescending(m => m.DatePurchased);
             return View("ProjectIndex", model);
         }
         //GET: Get Create view for Project

@@ -63,7 +63,7 @@
             </td>
             <td>
                 @*letting user check this in index list?? Then automatically moving to Sold list*@
-                <a asp-controller="Transactions" asp-action="Create" asp-route-id="@item.Id" class="btn btn-primary">Sold</a> 
+                <a asp-route="createTransaction" asp-route-id="@item.Id" class="btn btn-primary">Sold</a> 
                 @*@Html.DisplayFor(modelItem => item.Sold)*@
             </td>
             <td>
