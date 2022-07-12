@@ -7,6 +7,7 @@ using TestOAT_MVC.Services;
 
 namespace TestOAT_MVC.Controllers
 {
+    [Authorize(Roles = "SuperUser")]
     public class TransactionsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -16,7 +17,6 @@ namespace TestOAT_MVC.Controllers
             _context = context;
         }
 
-        [Authorize]
         public IActionResult Index()
         {
             var service = CreateTransactionService();

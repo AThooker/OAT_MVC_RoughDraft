@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using TestOAT_MVC.Models;
 
 namespace TestOAT_MVC.Controllers
 {
+    [Authorize(Roles="SuperUser")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
