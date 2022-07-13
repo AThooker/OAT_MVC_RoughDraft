@@ -21,7 +21,7 @@ namespace TestOAT_MVC.Controllers
         {
             var service = CreateTransactionService();
             var model = service.GetAllTransactions();
-            return View("TransactionIndex", model);
+            return View(model);
         }
         //GET: Get Create view for Project
         [Route("Transactions/Create/{id}", Name = "createTransaction")]

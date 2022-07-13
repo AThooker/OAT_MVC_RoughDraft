@@ -50,5 +50,6 @@ namespace TestOAT_MVC.Data
 
 
         }
+        public DbSet<TestOAT_MVC.Models.TransactionDtos.TransactionIndexDto>? TransactionIndexDto { get; set; }
     }
 }

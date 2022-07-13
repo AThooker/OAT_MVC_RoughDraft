@@ -18,10 +18,27 @@ namespace TestOAT_MVC.Controllers
         }
 
         [Authorize(Roles = "SuperUser")]
-        public IActionResult Index()
+        public IActionResult Index(string sortOrder)
         {
+            ViewData["DatePurchasedSortParm"] = String.IsNullOrEmpty(sortOrder) ? "date_purchased" : "";
+            ViewData["DateSoldSortParm"] = sortOrder == "DateSold" ? "sold_desc" : "DateSold";
             var service = CreateProjectService();
-            var model = service.GetAllProjects().OrderByDescending(m => m.DatePurchased);
+            var model = service.GetAllProjects();
+            switch(sortOrder)
+            {
+                case "date_purchased":
+                    model = model.OrderByDescending(m => m.DatePurchased);
+                    break;
+                case "DateSold":
+                    model = model.OrderBy(m => m.DateSold);
+                    break;
+                case "sold_desc":
+                    model= model.OrderByDescending(m => m.DateSold);
+                    break;
+                default:
+                    model = model.OrderBy(m => m.DatePurchased);
+                    break;
+            }
             return View("ProjectIndex", model);
         }
         //GET: Get Create view for Project

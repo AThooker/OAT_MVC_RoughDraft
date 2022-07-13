@@ -107,6 +107,7 @@ namespace TestOAT_MVC.Services
 			{
 				ProjectId = t.ProjectId,
 				PriceSoldAt = t.PriceSoldAt,
+				ProjectDescription = t.Project.Description,
 				DateOfTransaction = t.DateOfTransaction,
 				Profit = t.Profit,
 				ProfitPerHour = t.ProfitPerHour

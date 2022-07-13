@@ -22,7 +22,8 @@
                 @Html.DisplayNameFor(model => model.PurchasePrice)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DatePurchased)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DatePurchasedSortParm"]">@Html.DisplayNameFor(model => model.DatePurchased)</a>
+                @*@Html.DisplayNameFor(model => model.DatePurchased)*@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.HoursDedicated)
