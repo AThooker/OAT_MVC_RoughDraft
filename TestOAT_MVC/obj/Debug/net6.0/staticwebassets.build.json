@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bDoa4WcDSr21sHD2juylYVcvAQJldturIpOQlikNuzg=",
+  "Hash": "1R8zb4v5vRStDe1hdq8CbL4Vl4zMxGVxve886pc2zB0=",
   "Source": "TestOAT_MVC",
   "BasePath": "_content/TestOAT_MVC",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\17654\\OAT\\OAT_MVC_RoughDraft\\TestOAT_MVC\\wwwroot\\img\\icons8-home-64.png",
+      "SourceId": "TestOAT_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\17654\\OAT\\OAT_MVC_RoughDraft\\TestOAT_MVC\\wwwroot\\",
+      "BasePath": "_content/TestOAT_MVC",
+      "RelativePath": "img/icons8-home-64.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\icons8-home-64.png"
     },
     {
       "Identity": "C:\\Users\\17654\\OAT\\OAT_MVC_RoughDraft\\TestOAT_MVC\\wwwroot\\img\\logoB2L(2).png",
